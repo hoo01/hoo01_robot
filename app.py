@@ -6,9 +6,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, AutoModel
 # download internlm2 to the base_path directory using git tool
 base_path = './hoo01_robot'
 os.system(f'git clone https://code.openxlab.org.cn/hoo01/hoo01_robot.git {base_path}')
-model_path=base_path+'/final_model'
-
-os.system(f'cd {model_path} && git lfs pull')
+os.system(f'cd {base_path} && git lfs pull')
 
 tokenizer = AutoTokenizer.from_pretrained(model_path,trust_remote_code=True)
 model = AutoModelForCausalLM.from_pretrained(model_path,trust_remote_code=True, torch_dtype=torch.float16)
